@@ -4,7 +4,8 @@ def start_string(cur_game):
 
     player_cout = "Player Info: \n"
 
-    for player in cur_game.
+    for player in cur_game.players:
+
 
     str(
         '\n Experiment started: ' + str(cur_game.info.experiment_start_time) + '\n\n' +

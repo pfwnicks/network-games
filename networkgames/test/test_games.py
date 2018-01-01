@@ -18,6 +18,6 @@ def seepage_games():
     print(sg.players.player_0.name)
     print(sg.players.player_0.strategy)
 
-# seepage_games()
+seepage_games()
 
 #TODO: Add check functions for all test functions

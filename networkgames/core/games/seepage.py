@@ -16,8 +16,9 @@ class Seepage(Games):
         :param green_algo: vertex selection algo for green
         :param sludge_algo: vertex selection algo for sludge
         """
+        player_list = [['sludge', sludge_algo], ['green', green_algo]]
 
-        super(Seepage, self).__init__()
+        super(Seepage, self).__init__(number_of_players=2, player_list=player_list)
 
         self.name = 'seepage'
 
@@ -25,7 +26,11 @@ class Seepage(Games):
 
         self.info = self.info(test_graph, sim_range, sim_runs)
 
-        self.players.player_0 = self.players.player_0('sludge', sludge_algo, [], [])
+        print(self.players.player_0.name)
 
-        self.players.player_1 = self.players.player_1('green', green_algo, [], [])
+        # self.player_0 = self.players.player_0('sludge', sludge_algo, [], [])
+
+        # self.player_1 = self.players.player_1('green', green_algo, [], [])
+
+        self.player_0.moves = [0, 1, 2]
 
