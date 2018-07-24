@@ -16,3 +16,4 @@ def seepage_games():
 
 seepage_games()
 
+#TODO: Add check functions for all test functions
