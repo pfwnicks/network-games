@@ -2,3 +2,13 @@
 \.idea/
 
 network-games/data/results/
+
+network-games/test\.py
+
+networkgames/__pycache__/
+
+networkgames/util/__pycache__/
+
+networkgames/data/__pycache__/
+
+*/__pycache__/
