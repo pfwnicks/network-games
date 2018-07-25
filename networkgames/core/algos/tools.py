@@ -1,12 +1,12 @@
-def usable_hood_selector(local_g, V_pol_local, V_pro_local, list_thr):
+def usable_hood_selector(local_g, v_pol_local, v_pro_local, list_thr):
     usable_hood_data = []
     for v_thr in list_thr:
         hood = []
         hood_list = []
         hood.extend(local_g.neighbors(v_thr))
         for v_h in hood:
-            if (V_pol_local.has_vertex(v_h) is True
-                    or V_pro_local.has_vertex(v_h) is True):
+            if (v_pol_local.has_vertex(v_h) is True
+                    or v_pro_local.has_vertex(v_h) is True):
                 continue
             else:
                 hood_list.append(v_h)
@@ -15,7 +15,7 @@ def usable_hood_selector(local_g, V_pol_local, V_pro_local, list_thr):
     return dict(usable_hood_data)
 
 
-def max_deg_thr_vertex(local_g, V_pol_local, V_pro_local, list_thr):
+def max_deg_thr_vertex(local_g, v_pol_local, v_pro_local, list_thr):
     usable_hood_dict = {}
     usable_hood_data = []
     for v_thr in list_thr:
@@ -23,8 +23,8 @@ def max_deg_thr_vertex(local_g, V_pol_local, V_pro_local, list_thr):
         hood_list = []
         hood.extend(local_g.neighbors(v_thr))
         for v_h in hood:
-            if (V_pol_local.has_vertex(v_h) is True
-                    or V_pro_local.has_vertex(v_h) is True):
+            if (v_pol_local.has_vertex(v_h) is True
+                    or v_pro_local.has_vertex(v_h) is True):
                 continue
             else:
                 hood_list.append(v_h)
@@ -37,9 +37,9 @@ def max_deg_thr_vertex(local_g, V_pol_local, V_pro_local, list_thr):
 
 
 def closest_to_center_vertex(
-        local_g, V_pol_local, V_pro_local, center_list):
+        local_g, v_pol_local, v_pro_local, center_list):
     usable_hood_dict = Functions.usable_hood_selector(
-        local_g, V_pol_local, V_pro_local)
+        local_g, v_pol_local, v_pro_local)
     max_key = max(usable_hood_dict, key=lambda key: usable_hood_dict[key])
     max_usable_hood_list = []
     for v in usable_hood_dict:
@@ -72,9 +72,9 @@ def closest_to_center_vertex(
 
 
 def furthest_from_source_vertex(
-        local_g, V_pol_local, V_pro_local, list_thr, v_s):
+        local_g, v_pol_local, v_pro_local, list_thr, v_s):
     # usable_hood_dict = Functions.usable_hood_selector(
-    #         local_g, V_pol_local, V_pro_local)
+    #         local_g, v_pol_local, v_pro_local)
     # minimum_distance_list = []
     # minimum_distance_dict = {}
     max_distance_list = []
@@ -96,7 +96,7 @@ def furthest_from_source_vertex(
 
 
 def max_weighted_vertex(
-        local_g, V_pol_local, V_pro_local,
+        local_g, v_pol_local, v_pro_local,
         list_thr, center_list, v_s):
     max_hood_list = []
     usable_hood_data = []
@@ -110,11 +110,11 @@ def max_weighted_vertex(
         for h in hood:
 
             # check to see if vertex is polluted
-            if V_pol_local.has_node(h) is True:
+            if v_pol_local.has_node(h) is True:
                 continue
 
             # check to see if vertex is green
-            if V_pro_local.has_node(h) is True:
+            if v_pro_local.has_node(h) is True:
                 continue
             else:
                 # add vertex to list usable neighbourhood
@@ -187,19 +187,19 @@ def find_infty_list(v_local, g_local):
     return infinity_list
 
 
-def new_vertex_selector(local_g, V_pol_local, V_pro_local, list_thr, v_s,
+def new_vertex_selector(local_g, v_pol_local, v_pro_local, list_thr, v_s,
                         agg=max):
     # --- Define local subgraph with v_pro removed
     local_vertices = []
     local_vertices = list(local_g.nodes())
-    for v_pro in list(V_pro_local.nodes):
+    for v_pro in list(v_pro_local.nodes):
         local_vertices.remove(v_pro)
 
     deleted_subgraph = local_g.subgraph(local_vertices)
     search_subgraph_list = []
     subgraph_list = []
     subgraph_list.extend(list_thr)
-    subgraph_list.extend(list(V_pol_local.nodes()))
+    subgraph_list.extend(list(v_pol_local.nodes()))
 
     # --- Find subgraph for searching use
     for v_thr in list_thr:
@@ -294,5 +294,5 @@ def new_vertex_selector(local_g, V_pol_local, V_pro_local, list_thr, v_s,
         return choice(list(max_avg_distance_dict.keys()))
 
 
-def random_vertex_selector(local_g, V_pol_local, V_pro_local, list_thr):
+def random_vertex_selector(local_g, v_pol_local, v_pro_local, list_thr):
     return choice(list(local_g.subgraph(list_thr).nodes()))
