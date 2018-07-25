@@ -16,12 +16,8 @@ import time
 
 def seepage_problem(g, range_of_test,
                     repetition_per_vertex,
-                    green_move_algorithm,
-                    sludge_move_algorithm):
-
-    # Preamble
-    sludge_algo = sludge_move_algorithm
-    green_algo = green_move_algorithm
+                    green_algo,
+                    sludge_algo):
 
     start_time = time.clock()
     experiment_start_time = time.ctime()
@@ -35,14 +31,16 @@ def seepage_problem(g, range_of_test,
     # create experiment folders
     _filehandling.create_output_directory(start_time)
 
+    output
+
     start_string = str(
         '\n Experiment started: ' + str(experiment_start_time) + '\n\n' +
         'Testing the seepage problem on the ' + str(g) + ' which has ' +
         str(g.order) + ' vertices.\n'+'The vertices to be tested are: ' +
         str(range_of_test) + '\n' + 'These vertices will be tested ' +
         str(num_of_exper) + ' time(s) each with Green using the ' +
-        str(green_move_algorithm) + ' strategy, and Sludge using the ' +
-        str(sludge_move_algorithm) + ' strategy.')
+        str(green_algo) + ' strategy, and Sludge using the ' +
+        str(sludge_algo) + ' strategy.')
     print(start_string)
 
     loc_string = (
