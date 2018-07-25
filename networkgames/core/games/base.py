@@ -10,6 +10,19 @@ class Games(object):
 
     def __init__(self, number_of_players=2):
 
-        for player_number in range(number_of_players):
-            setattr(self, "player_%s" % player_number,
-                    nt("Player", ['name', 'strategy', 'moves', 'node_list']))
+        self.name = 'base'
+        self._number_of_players = number_of_players
+        self.players = nt("Players", ["player_%s" % player_number for player_number in range(self._number_of_players)])
+        self.players = self.players(*map(lambda p: nt("Player", ['name', 'strategy', 'moves', 'node_list']),
+                                        list(range(self._number_of_players))))
+        #print(self.players._fields)
+
+        # setattr([lambda for lambda in self.players], nt("Player", ['name', 'strategy', 'moves', 'node_list']) ) lambda in self.players)
+        # map(lambda player: setattr(self.players.player, nt("Player", ['name', 'strategy', 'moves', 'node_list'])),
+        #     self.players._fields)
+
+
+        # for player_number in range(self._number_of_players):
+        #     setattr(self.players, "player_%s" % player_number,
+        #             nt("Player", ['name', 'strategy', 'moves', 'node_list']))
+
