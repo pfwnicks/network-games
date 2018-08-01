@@ -1,10 +1,8 @@
-from networkgames.core.logger import _filehandling, _datalogs
+from networkgames.core.util import _filehandling
 import networkx as nx
 from networkx import Graph
 # from networkx import generators
 from networkx.algorithms.distance_measures import center
-import os
-
 
 import time
 
