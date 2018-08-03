@@ -22,3 +22,5 @@ networkgames/core/logger/__pycache__/
 networkgames/core/games/__pycache__/
 
 networkgames/core/controls/__pycache__/
+
+networkgames/core/util/__pycache__/
