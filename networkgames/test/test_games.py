@@ -3,6 +3,10 @@ def base_games():
     mg = Games()
     print(mg)
     print(mg.player_info)
+    print(mg.sim_info)
+    print(mg.sim_info.test_graph)
+    print(mg.player_info.player_0.name)
+    print(mg.player_info.player_0.strategy)
 
 base_games()
 
@@ -12,11 +16,12 @@ def seepage_games():
 
     sg = Seepage(gg.caveman_graph(2, 2), 'test', 'test', 'test', 'test')
 
-    print(sg.graph_info)
+    print(sg.sim_info)
     #print(sg.info._fields)
-    print(sg.graph_info.test_graph)
+    print(sg.sim_info.test_graph)
     print(sg.player_info.player_0.name)
     print(sg.player_info.player_0.strategy)
+    return sg
 
 seepage_games()
 
