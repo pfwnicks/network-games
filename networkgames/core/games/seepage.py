@@ -23,7 +23,7 @@ class Seepage(Games):
             name='Seepage',
             number_of_players=2,
             player_list=[['sludge', sludge_algo, []], ['green', green_algo, []]],
-            graph_info_list=[test_graph, sim_range, sim_runs])
+            sim_info_list=[test_graph, sim_range, sim_runs])
 
 
 
