@@ -3,8 +3,6 @@
 
 network-games/data/results/
 
-network-games/test\.py
-
 networkgames/__pycache__/
 
 networkgames/util/__pycache__/
