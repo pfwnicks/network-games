@@ -22,3 +22,7 @@ networkgames/core/games/__pycache__/
 networkgames/core/controls/__pycache__/
 
 networkgames/core/util/__pycache__/
+
+networkgames/__pycache___/
+
+networkgames/\.DS_Store
