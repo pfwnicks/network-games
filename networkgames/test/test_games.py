@@ -1,28 +1,35 @@
-def base_games():
+def test_base(cout=False):
     from networkgames.core.games.base import Games
-    mg = Games()
-    print(mg)
-    print(mg.player_info)
-    print(mg.sim_info)
-    print(mg.sim_info.test_graph)
-    print(mg.player_info.player_0.name)
-    print(mg.player_info.player_0.strategy)
+    base_game = Games()
+    
+    if cout:
+        print(base_game)
+        print(base_game.player_info)
+        print(base_game.sim_info)
+        print(base_game.sim_info.test_graph)
+        print(base_game.player_info.player_0.name)
+        print(base_game.player_info.player_0.strategy)
 
-base_games()
+    return base_game
 
-def seepage_games():
+def test_seepage(cout=False):
     from networkx import generators as gg
     from networkgames.core.games.seepage import Seepage
 
-    sg = Seepage(gg.caveman_graph(2, 2), 'test', 'test', 'test', 'test')
+    seepage_game = \
+        Seepage(gg.caveman_graph(2, 2), 'test_sim_range', 'test_sim_runs', 'test_green_algo', 'test_sludge_algo')
+    
+    if cout:
+        print(seepage_game.sim_info)
+        #print(seepage_game.info._fields)
+        print(seepage_game.sim_info.test_graph)
+        print(seepage_game.player_info.player_0.name)
+        print(seepage_game.player_info.player_0.strategy)
 
-    print(sg.sim_info)
-    #print(sg.info._fields)
-    print(sg.sim_info.test_graph)
-    print(sg.player_info.player_0.name)
-    print(sg.player_info.player_0.strategy)
-    return sg
+    return seepage_game
 
-seepage_games()
+if __name__ == "__main__":
+    test_base(True)
+    test_seepage(True)
 
 #TODO: Add check functions for all test functions
