@@ -11,7 +11,7 @@ class Games(object):
     """
     #TODO: Add baseclass attributes to be used for all games.
 
-    __slots__ = ['name', 'player_info', 'sim_info', 'exp_info', '_number_of_players', '_base_player']
+    __slots__ = ['name', 'log', 'player_info', 'sim_info', 'exp_info', '_number_of_players', '_base_player']
 
     def __init__(self,
                  name='default_game',
@@ -26,6 +26,7 @@ class Games(object):
 
 
         self.name = name
+        self.log = print
         self._number_of_players = number_of_players
 
         self.player_info \
