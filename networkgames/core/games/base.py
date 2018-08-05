@@ -1,5 +1,6 @@
 from collections import namedtuple as nt
 from importlib import import_module
+from networkgames.core.util import _filehandling
 # from networkx.classes.graph import Graph
 import sys
 
@@ -11,7 +12,8 @@ class Games(object):
     """
     #TODO: Add baseclass attributes to be used for all games.
 
-    __slots__ = ['name', 'log', 'player_info', 'sim_info', 'exp_info', '_number_of_players', '_base_player']
+    __slots__ = ['name', 'log', 'player_info', 'sim_info', 'exp_info', '_number_of_players', '_base_player',
+                 'output_loc']
 
     def __init__(self,
                  name='default_game',
@@ -43,4 +45,6 @@ class Games(object):
         class obj(object): pass
 
         self.exp_info = obj
+
+        self.output_loc = _filehandling.create_output_locs()
         # self.exp_info.start_time = time.now()

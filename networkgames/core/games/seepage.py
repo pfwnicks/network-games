@@ -34,7 +34,7 @@ class Seepage(Games):
         :param sludge_algo: vertex selection algo for sludge
         """
 
-        __slots__ = ['seepage_problem', '_output_loc']
+        __slots__ = ['seepage_game',]
 
         super(Seepage, self).__init__(
             name='Seepage',
@@ -42,10 +42,9 @@ class Seepage(Games):
             player_list=[['sludge', sludge_algo, []], ['green', green_algo, []]],
             sim_info_list=[test_graph, sim_range, sim_runs])
 
-    def seepage_problem(self):
-        start_time = clock()
+    def seepage_game(self):
         hum_start_time = ctime()
-        lap_time = start_time
+        lap_time = clock()
 
         # Experiment Initialization
         k = 0
@@ -53,12 +52,15 @@ class Seepage(Games):
         num_of_exper = self.sim_info.sim_runs  # Set number of experiments
 
         # create experiment folders
-        self.output_loc = _filehandling.create_output_loc(start_time)
+
         print(_datalogging.start_string(cur_game=self))
-        self.log(_datalogging.loc_string)
+        self.log(_datalogging.loc_string())
 
 
     def next_steps(self):
+
+        #TODO: Refactor everything in this function
+
         g = nx.convert_node_labels_to_integers(g)
         center_list = center(g)
 
