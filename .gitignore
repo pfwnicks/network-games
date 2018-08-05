@@ -30,3 +30,5 @@ networkgames/\.DS_Store
 networkgames/data/results/
 
 networkgames/test/__pycache__/
+
+networkgames/test/test_games/__pycache__/
