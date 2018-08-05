@@ -28,7 +28,9 @@ def loc_string(cur_game=import_module('networkgames.core.games.base').Games()):
      The overall contamination number data for this experiment is in: \n
      combined_experiment_data.txt\n
      The directory containing detailed information for the tests on each
-     vertex is: \n %s \n
+     vertex is: \n %s/vertexData \n
      The directory containing the graphs of the maximal seepage
-     situation is: \n %s \n\n
-     """  % (file_path, vertex_file_path, graph_file_path)
+     situation is: \n %s/graphs \n\n
+     """  % (cur_game.output_loc, cur_game.output_loc, cur_game.output_loc)
+
+    return cout
