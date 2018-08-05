@@ -1,3 +1,4 @@
+
 def test_out_dir_creation():
     from networkgames.core.util._filehandling import create_output_locs
     from networkgames.data import results
