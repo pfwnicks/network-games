@@ -1,3 +1,9 @@
+from random import choice
+import networkx as nx
+
+
+
+
 def usable_hood_selector(local_g, v_pol_local, v_pro_local, list_thr):
     usable_hood_data = []
     for v_thr in list_thr:
