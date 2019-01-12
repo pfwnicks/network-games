@@ -44,7 +44,7 @@ def max_deg_thr_vertex(local_g, v_pol_local, v_pro_local, list_thr):
 
 def closest_to_center_vertex(
         local_g, v_pol_local, v_pro_local, center_list):
-    usable_hood_dict = Functions.usable_hood_selector(
+    usable_hood_dict = usable_hood_selector(
         local_g, v_pol_local, v_pro_local)
     max_key = max(usable_hood_dict, key=lambda key: usable_hood_dict[key])
     max_usable_hood_list = []
@@ -79,7 +79,7 @@ def closest_to_center_vertex(
 
 def furthest_from_source_vertex(
         local_g, v_pol_local, v_pro_local, list_thr, v_s):
-    # usable_hood_dict = Functions.usable_hood_selector(
+    # usable_hood_dict = usable_hood_selector(
     #         local_g, v_pol_local, v_pro_local)
     # minimum_distance_list = []
     # minimum_distance_dict = {}
