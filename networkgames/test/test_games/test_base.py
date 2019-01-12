@@ -13,5 +13,6 @@ def test_base(cout=False):
 
     return base_game
 
+
 if __name__ == "__main__":
     test_base(True)
