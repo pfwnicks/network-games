@@ -34,8 +34,7 @@ def sludge_vertex_selector(local_g, V_pol_local, V_pro_local, sludge_algo, list_
         return Functions.closest_to_center_vertex(local_g, V_pol_local, V_pro_local, list_thr, center_list, v_s)
 
     if sludge_algo == 'max_weighted_vertex':
-        lp_maxwv = lp(Functions.max_weighted_vertex)
-        return lp_maxwv(local_g, V_pol_local, V_pro_local, list_thr, center_list, v_s)
+        return Functions.max_weighted_vertex(local_g, V_pol_local, V_pro_local, list_thr, center_list, v_s)
 
     if sludge_algo == 'random_vertex':
         return Functions.random_vertex_selector(local_g, V_pol_local, V_pro_local, list_thr)
