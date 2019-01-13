@@ -48,3 +48,19 @@ class Games(object):
 
         self.output_loc = _filehandling.create_output_locs()
         # self.exp_info.start_time = time.now()
+
+
+class Player(object):
+    """
+    A general class to hold all attributes of each player.
+
+    """
+
+    __slots__ = ['name', 'strategy', 'moves', 'constraints']
+
+    def __init__(self, name = 'default name', strategy = 'default strategy'):
+        self.constraints = 'default constraints'
+        self.name = 'default name'
+        self.strategy = 'default strategy'
+        self.moves = 'default moves'
+
