@@ -142,7 +142,7 @@ networkgames/core/util/__pycache__/
 
 networkgames/__pycache___/
 
-networkgames/\.DS_Store
+.DS_Store
 
 networkgames/data/results/
 
